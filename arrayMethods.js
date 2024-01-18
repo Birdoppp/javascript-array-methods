@@ -1,4 +1,6 @@
-// Gebruik array methoden voor alle onderstaande opdrachten
+git remote add origin git@github.com:Birdoppp/javascript-array-methods.git
+git branch -M main
+git push -u origin main// Gebruik array methoden voor alle onderstaande opdrachten
 
 const inventors = [
   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
