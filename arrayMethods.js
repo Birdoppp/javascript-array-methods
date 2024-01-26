@@ -19,16 +19,31 @@ const inventors = [
 // Verwachte uitkomst:
 // [{ first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 }, { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 }]
 
+function birthYear({year}) {
+  return year >= 1500 && year <= 1600;
+}
+console.log(inventors.filter(birthYear))
 
 
 // 2. Maak een array met daarin alle geboortejaren van de uitvinders
 // Verwachte uitkomst: [1879, 1643, 1564, 1867, 1571, 1473, 1858, 1898, 1815, 1855, 1878, 1847];
 
+const birthYears = inventors.map(inventor => inventor.year);
+console.log(birthYears);
 
 
 // 3. Maak een array met daarin alle volledige namen van de uitvinders (dus voor- en achternaam als één string)
 // Verwachte uitkomst: [ 'Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Marie Curie', 'Johannes Kepler', 'Nicolaus Copernicus', 'Max Planck', 'Katherine Blodgett', 'Ada Lovelace', 'Sarah E. Goode', 'Lise Meitner', 'Thomas Edison']
 
+const names = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
+console.log(names)
+
+// function getFullName(inventors) {
+//     return `${inventors.first} ${inventors.last};`
+// }
+//
+// const fullNames = inventors.map(getFullName);
+// console.log(fullNames);
 
 
 // 4. Sorteer de uitvinders op geboortejaar, oplopend van oudste naar jongste uitvinder
@@ -49,6 +64,10 @@ const inventors = [
 // ]
 
 
+const byDate = inventors.sort((a,b) => a.year - b.year);
+console.log(byDate);
+
+
 
 // 5. Sorteer de uitvinders op hoeveel jaren ze geleefd hebben, van langste leven naar kortste leven
 // Verwachte uitkomst:
@@ -67,8 +86,19 @@ const inventors = [
 // { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 }
 // ]
 
+const agesLived = inventors.sort((a,b) => {
+  const yearA= a.passed - a.year;
+  const yearB = b.passed - b.year;
+  return yearB-yearA
+})
+console.log(agesLived)
 
 
 
 // 6. Vind de gegevens over de uitvinder wiens achternaam 'Edison' is.
 // Verwachte uitkomst: { first: 'Thomas', last: 'Edison', year: 1847, passed: 1931 }
+
+const thomas = inventors.find(inventor => {
+  return inventor.last === "Edison";
+});
+ console.log(thomas);
